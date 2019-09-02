@@ -1,12 +1,12 @@
 # Modulos
 #### Usado Python3
-PIP3 
-Flask 
-Flash_sqlalchemy 
-Flask_httpauth
-passlib
-HTML
-HTMLparser
+PIP3 <br />
+Flask <br />
+Flash_sqlalchemy <br />
+Flask_httpauth <br />
+passlib <br />
+HTML <br />
+HTMLparser <br />
 scrapy
 
 # Métodos
