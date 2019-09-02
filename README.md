@@ -1,42 +1,33 @@
-# crawler
-Usado Python3 para testes
-<hr />
+# Modulos
+#### Usado Python3
+PIP3 
+Flask 
+Flash_sqlalchemy 
+Flask_httpauth
+passlib
+HTML
+HTMLparser
+scrapy
 
-Modulos necessários: <br />
-PIP3 <br />
-Flask <br />
-Flash_sqlalchemy <br />
-Flask_httpauth <br />
-passlib <br />
-HTML <br />
-HTMLparser <br />
-scrapy <br />
-<hr />
+# Métodos
+### Criar Usuário (POST)
+##### Caminho: url:5000/users
+###### Body (Json): 
 
-Ubuntu: <br />
-sudo python webservice.py
+    {"username": "user", "password": "pass"}
 
-Windows: <br />
-python webservice.py
-<hr />
+##### Retorno:
 
-<h1>Requests</h1>
-<hr />
-Criar usuario:  <br />
-url:5000/users<br />
-body:<br />
-```json
-{
-  "username": "user",
-  "password": "pass"
-}```
-<br />
-<hr />
-Consultar dados: <br />
-url:5000/getCrawler <br />
-body: vazio <br />
-Header <br />
-Authorization: Basic .token. <br />
-O .token. é recebido ao se criar um usuario<br />
+    {"username": <user>,  "Token": <token>}
 
+#### Consulta de dados (GET)
+##### Caminho: url:5000/getCrawler
+##### Body Vazio
+##### Header:
 
+    Authorization: Basic <token> 
+
+## TODO:
+- [ ] Client
+- [ ] Melhorar Segurança do WS
+- [ ] Implementar requisições Async
