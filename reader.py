@@ -1,7 +1,6 @@
 #!/usr/bin/python
 import json
 import descriptionParse
-import codecs
 
 # Funcao que le arquivo auxiliar e transforma e Json
 def fileToJson():
