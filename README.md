@@ -31,3 +31,6 @@ scrapy
 - [ ] Client
 - [ ] Melhorar Segurança do WS
 - [ ] Implementar requisições Async
+
+# SERVIÇO RODANDO ATUALMENTE NA SEGUINTE URL:
+    api.tisp.club:5000
