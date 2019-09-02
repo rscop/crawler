@@ -1,10 +1,12 @@
 # crawler
-
+Usado Python3 para testes
+<hr />
 <p>
 Modulos necessários:
-PIP
+PIP3
 Flask
 HTML
+HTMLparser
 scrapy
 <hr />
 
