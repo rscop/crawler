@@ -1,0 +1,6 @@
+db.sqlite
+dados.json
+client.py
+__pycache__/scraper.cpython-37.pyc
+__pycache__/reader.cpython-37.pyc
+__pycache__/descriptionParse.cpython-37.pyc
