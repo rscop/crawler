@@ -4,7 +4,8 @@ import json
 def parser(obj):
 
 	# Remocao de carateres indesejados para a formatacao do texto
-	obj = obj.replace("\t", "").replace("\n", "").replace('\xc2', '').replace('\xa0', '')
+	# Remocao de tags <p> vazias
+	obj = obj.replace("\t", "").replace("\n", "").replace('\xc2', '').replace('\xa0', '').replace("<p></p>", "")
 
 	# Adciono um [ para geracai inicial da lista
 	finaljson = "["
