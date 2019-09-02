@@ -1,24 +1,42 @@
 # crawler
 Usado Python3 para testes
 <hr />
-<p>
-Modulos necessários:
-PIP3
-Flask
-HTML
-HTMLparser
-scrapy
+
+Modulos necessários: <br />
+PIP3 <br />
+Flask <br />
+Flash_sqlalchemy <br />
+Flask_httpauth <br />
+passlib <br />
+HTML <br />
+HTMLparser <br />
+scrapy <br />
 <hr />
 
-Ubuntu:
+Ubuntu: <br />
 sudo python webservice.py
 
-Windows:
+Windows: <br />
 python webservice.py
 <hr />
 
-Request do tipo GET:
-url:5000/getCrawler
+<h1>Requests</h1>
+<hr />
+Criar usuario:  <br />
+url:5000/users<br />
+body:<br />
+```json
+{
+  "username": "user",
+  "password": "pass"
+}```
+<br />
+<hr />
+Consultar dados: <br />
+url:5000/getCrawler <br />
+body: vazio <br />
+Header <br />
+Authorization: Basic .token. <br />
+O .token. é recebido ao se criar um usuario<br />
 
-Retorno no formato Json
-</p>
+
