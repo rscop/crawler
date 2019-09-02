@@ -140,7 +140,7 @@ def closeTag(tag, pos, obj):
 			# Pego a URl indo ate o primeiro "
 			endpos = links[d][+1:].find('"')
 
-			links[d] = links[d][1:endpos-1]
+			links[d] = links[d][1:endpos+1]
 
 		# Removo O primeiro valor que sempre fica vazio nesse algoritimo
 		links.remove("")
