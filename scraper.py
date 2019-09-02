@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import scrapy
+from html.parser import HTMLParser
 
 # Criacao do objeto Spider
 class Crawler(scrapy.Spider):
@@ -10,10 +11,11 @@ class Crawler(scrapy.Spider):
 
     # Separacao dos objetos por tipo de dado
     def parse(self, response):
+        h = HTMLParser()
         for item in response.css('item'):
             yield {
                 'title': item.css('title::text').get(),
                 'link': item.css('link::text').get(),
-                'description': item.css('description::text').get(),
+                'description': h.unescape(item.css('description::text').get()),
             }
 

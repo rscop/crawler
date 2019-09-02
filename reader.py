@@ -46,5 +46,6 @@ class Crawler:
 
 	# Funcao para extracao do dado
 	def getJson(self):
-		
+
 		return self.Rjson
+		

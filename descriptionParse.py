@@ -5,8 +5,7 @@ import html
 def parser(obj):
 
 	# Remocao de carateres indesejados para a formatacao do texto
-	# Remocao das tags P que ficaram vazias no ultimo replace
-	obj = obj.replace("\t", "").replace("\n", "").replace("<p>&nbsp;</p>", "")
+	obj = obj.replace("\t", "").replace("\n", "").replace('\xc2', '').replace('\xa0', '')
 
 	# Adciono um [ para geracai inicial da lista
 	finaljson = "["
@@ -37,6 +36,8 @@ def parser(obj):
 				data = closeTag(tag, d, obj)
 				
 				# Formato a saida da string
+				# Trocado Aspas Dupla para Aspas normal
+				data = data.replace('"',"'")
 				formated = ('{"type": "text", "content": "%s"},'%data).replace("<strong>", "").replace("</strong>", "")
 				
 				# Adiciono ao objeto Pai
@@ -56,7 +57,7 @@ def parser(obj):
 
 	# Termino a formatacao com ] para finalizar a lista
 	finaljson = (finaljson[:len(finaljson)-1]+']')
-
+	
 	return json.loads(finaljson)
 
 def closeTag(tag, pos, obj):
