@@ -7,7 +7,7 @@ from itsdangerous import (TimedJSONWebSignatureSerializer as Serializer, BadSign
 from base64 import b64encode
 import sys
 import configparser
-from Crawler import *
+from crawler import *
 import os
 
 app = Flask(__name__)
