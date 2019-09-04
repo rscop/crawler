@@ -101,7 +101,8 @@ def closeTag(tag, pos, obj):
 		# Se nao houver nenhum link, apenas busco a endtag
 		endpos = obj[pos:].find(endtag)
 
-		return obj[pos+3:pos+endpos]
+		# Remocao de algumas tags que possam ter ficados perdidas dentro dos blocos P
+		return obj[pos+3:pos+endpos].replace("<em>", '').replace("</em>", '').replace("<br />", ' ').replace("<u>", '').replace("</u>", '')
 
 	elif tag == "<im":
 
