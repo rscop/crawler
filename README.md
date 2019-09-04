@@ -1,24 +1,36 @@
-# crawler
-Usado Python3 para testes
-<hr />
-<p>
-Modulos necessários:
-PIP3
-Flask
-HTML
-HTMLparser
+# Modulos
+#### Usado Python3
+PIP3 <br />
+Flask <br />
+Flash_sqlalchemy <br />
+Flask_httpauth <br />
+passlib <br />
+HTML <br />
+HTMLparser <br />
 scrapy
-<hr />
 
-Ubuntu:
-sudo python webservice.py
+# Métodos
+### Criar Usuário (POST)
+##### Caminho: url:5000/users
+###### Body (Json): 
 
-Windows:
-python webservice.py
-<hr />
+    {"username": "user", "password": "pass"}
 
-Request do tipo GET:
-url:5000/getCrawler
+##### Retorno:
 
-Retorno no formato Json
-</p>
+    {"username": <user>,  "Token": <token>}
+
+#### Consulta de dados (GET)
+##### Caminho: url:5000/getCrawler
+##### Body Vazio
+##### Header:
+
+    Authorization: Basic <token> 
+
+## TODO:
+- [ ] Client
+- [ ] Melhorar Segurança do WS
+- [ ] Implementar requisições Async
+
+# SERVIÇO RODANDO ATUALMENTE NA SEGUINTE URL:
+    api.tisp.club:5000
