@@ -205,7 +205,7 @@ def get():
 	# Deleto o Arquivo de auxilio
 	os.remove('return.json')
 
-	# return(response)
+	return(response)
 
 if __name__ == '__main__':
 
