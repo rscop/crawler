@@ -5,17 +5,39 @@ from flask_httpauth import HTTPBasicAuth
 from passlib.apps import custom_app_context as pwd_context
 from itsdangerous import (TimedJSONWebSignatureSerializer as Serializer, BadSignature, SignatureExpired)
 from base64 import b64encode
-from reader import *
+import sys
+import configparser
+from Crawler import *
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy dog'
+app.config['SECRET_KEY'] = '\x8b\xcbG\x95\xda\xb8\xbbz.x\xc5\xd7'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 
 # extensions
 db = SQLAlchemy(app)
 auth = HTTPBasicAuth()
+
+# Funcao que le arquivo de configurações
+def get_ConfigFile(inifile, section):
+	c = configparser.ConfigParser()
+	dataset = c.read(inifile)
+	if len(dataset) != 1:
+		raise ValueError
+
+	try:
+		c.read(inifile)
+	except Exception:
+		raise e
+
+	# Verifca as keys do arquivo de configuração
+	for key in c[section]:
+		if len(c[section][key]) == 0:
+			fatal("fatal: %s: could not find %s string" % (inifile, key), 1)
+
+	return c[section]
+
 
 class User(db.Model):
 
@@ -183,14 +205,18 @@ def get():
 	# Deleto o Arquivo de auxilio
 	os.remove('return.json')
 
-	return(response)
+	# return(response)
 
 if __name__ == '__main__':
+
+	config = get_ConfigFile(sys.argv[0]+'.cfg', 'production')
+	ip = config['listen_ip']
+	port = config['listen_port']
 
 	if not os.path.exists('db.sqlite'):
 	
 		# Crio DB se nao houver
 		db.create_all()
 
-	app.run(host='0.0.0.0', port=5000, debug=False)
+	app.run(host=ip, port=port, debug=False)
 	
