@@ -71,19 +71,17 @@ def closeTag(tag, pos, obj):
 		end = obj[pos:].find(endtag)
 
 		# String que sera formatada
-		verify = obj[pos:pos+end]
+		verify = obj[pos:pos+end].replace("<br />", ' ')
 
-		# Contagem de links (Se assim houver) dentro de <p>
-		nlinks = verify.count("<a href")
+		# Contagem de TAGS (Se assim houver) dentro de <p>
+		tags = verify.count("<")
 		
-		if nlinks > 0:
+		if tags > 0:
 
-			verify = verify.replace("</a>", "")
-
-			for d in range(nlinks):
+			for d in range(tags):
 
 				# Busco o link
-				inipos = verify.find("<a href=")
+				inipos = verify.find("<")
 
 				# Busco o fim dele
 				endpos = verify[inipos:].find(">")
@@ -95,14 +93,13 @@ def closeTag(tag, pos, obj):
 				verify = verify.replace(remove, "")
 
 			# Removo os parenteses que possam ter vindo junto com o link
-			verify = verify.replace("(", "").replace(")", "")
 
-			return verify[+3:]
+			return verify
 		# Se nao houver nenhum link, apenas busco a endtag
 		endpos = obj[pos:].find(endtag)
 
 		# Remocao de algumas tags que possam ter ficados perdidas dentro dos blocos P
-		return obj[pos+3:pos+endpos].replace("<em>", '').replace("</em>", '').replace("<br />", ' ').replace("<u>", '').replace("</u>", '')
+		return obj[pos+3:pos+endpos]
 
 	elif tag == "<im":
 
